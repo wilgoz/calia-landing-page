@@ -1,0 +1,160 @@
+---
+const packages = {
+  makarizo: {
+    name: "Makarizo",
+    description:
+      "High-quality Japanese scalp treatments at an accessible price point",
+    priceRange: "$75-150",
+    features: [
+      "Deep cleansing scalp treatment",
+      "Aromatherapy head massage",
+      "Hair nutrition therapy",
+      "Basic hair styling",
+    ],
+  },
+  lador: {
+    name: "La'Dor",
+    description:
+      "Luxury scalp care using premium La'Dor products for exceptional results",
+    priceRange: "$120-220",
+    features: [
+      "Advanced keratin treatment",
+      "Premium scalp diagnostics",
+      "Extended therapeutic massage",
+      "Intensive hair repair therapy",
+      "Professional hair styling",
+    ],
+  },
+};
+---
+
+<section class="packages">
+  <div class="content-wrapper">
+    <h2>Our Treatment Lines</h2>
+    <div class="package-grid">
+      <div class="package-card">
+        <h3>{packages.makarizo.name}</h3>
+        <p class="description">{packages.makarizo.description}</p>
+        <p class="price-range">Starting from {packages.makarizo.priceRange}</p>
+        <ul>
+          {packages.makarizo.features.map((feature) => <li>{feature}</li>)}
+        </ul>
+      </div>
+      <div class="package-card premium">
+        <span class="premium-badge">Premium</span>
+        <h3>{packages.lador.name}</h3>
+        <p class="description">{packages.lador.description}</p>
+        <p class="price-range">Starting from {packages.lador.priceRange}</p>
+        <ul>
+          {packages.lador.features.map((feature) => <li>{feature}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .packages {
+    padding: 6rem 0;
+    background-color: #f8f1e9;
+    position: relative;
+  }
+
+  .packages::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to bottom right, transparent 49%, #f8f1e9 50%);
+  }
+
+  .content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+  }
+
+  .package-card {
+    padding: 2.5rem;
+    background: white;
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .package-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .package-card.premium {
+    border: 2px solid var(--color-accent);
+  }
+
+  .premium-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--color-accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .description {
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .price-range {
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .package-grid {
+      gap: 2rem;
+    }
+  }
+</style>

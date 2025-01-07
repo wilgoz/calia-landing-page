@@ -1,0 +1,197 @@
+---
+import { Image } from "astro:assets";
+import logoImage from "../assets/logo.png";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Calia Japanese Head Spa offers luxurious scalp treatments and relaxation in a serene environment.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="main-nav">
+      <div class="nav-content">
+        <a href="/" class="logo">Calia</a>
+        <div class="nav-links">
+          <a href="/services">Services</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-info">
+          <Image
+            src={logoImage}
+            alt="Calia Logo"
+            loading="lazy"
+            class="footer-logo"
+          />
+        </div>
+        <div class="footer-location">
+          <h4><b>Location</b></h4>
+          <p>
+            Ruko Maxwell, Blk. C No.19<br />
+            Desa Medang, Kecamatan Pagedangan<br />
+            Kabupaten Tangerang, Banten 15334
+          </p>
+        </div>
+        <div class="footer-hours">
+          <h4><b>Hours</b></h4>
+          <p>Tuesday - Sunday: 10am - 8pm (GMT+7)<br />Monday: Closed</p>
+        </div>
+        <div class="footer-contact">
+          <h4><b>Contact</b></h4>
+          <p>Tel: +62 877‑7161‑6166<br />Email: caliaheadspa@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} CALIA. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-primary: #2c3e50;
+    --color-secondary: #95a5a6;
+    --color-accent: #d4a373;
+    --color-background: #faf6f1;
+    --color-text: #2c3e50;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 400;
+  }
+
+  h4 {
+    font-family: "Noto Serif JP", sans-serif;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+  }
+
+  .main-nav {
+    background: var(--color-background);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: "Noto Serif JP", serif;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+
+  .nav-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+
+  main {
+    margin-top: 70px;
+    min-height: calc(100vh - 70px - 300px);
+  }
+
+  footer {
+    background: var(--color-primary);
+    color: white;
+    padding: 4rem 0 1rem;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .footer-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>

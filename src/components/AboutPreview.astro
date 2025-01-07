@@ -1,0 +1,100 @@
+---
+
+---
+
+<section class="about">
+  <div class="about-content">
+    <div class="about-text">
+      <h2>About <b>Calia</b></h2>
+      <p>
+        At Calia, we blend traditional Japanese head spa techniques with modern
+        luxury. Our skilled therapists provide personalized treatments that
+        promote relaxation, scalp health, and overall well-being.
+      </p>
+      <a href="/about" class="learn-more">Learn More About Us</a>
+    </div>
+    <div class="instagram-reel-container">
+      <iframe
+        title="About Calia"
+        src="https://www.instagram.com/reel/DD__6zxymob/embed"
+        width="400"
+        height="700"
+        allow="autoplay; encrypted-media"
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .instagram-reel-container {
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .instagram-reel-container iframe {
+    max-width: 100%;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .about {
+    padding: 6rem 2rem;
+    background-color: var(--color-background);
+  }
+
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .about-text p {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .learn-more {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .learn-more:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image {
+      order: -1;
+    }
+  }
+</style>
