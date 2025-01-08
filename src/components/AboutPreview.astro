@@ -11,7 +11,22 @@
         luxury. Our skilled therapists provide personalized treatments that
         promote relaxation, scalp health, and overall well-being.
       </p>
-      <a href="/about" class="learn-more">Learn More About Us</a>
+      <div class="button-group">
+        <a
+          href="https://www.instagram.com/caliaheadspa/"
+          class="social-button instagram"
+          target="_blank"
+        >
+          <i class="fab fa-instagram"></i> Follow Our Instagram
+        </a>
+        <a
+          href="https://www.google.com/maps/place/Calia+Japanese+Head+Spa+Gading+Serpong/@-6.2651702,106.6066837,17z/data=!4m6!3m5!1s0x2e69fd052eb2e35b:0xcfc9cfb821d57d7b!8m2!3d-6.2651702!4d106.6066837!16s%2Fg%2F11wjjpcjn9?entry=ttu&g_ep=EgoyMDI1MDEwMi4wIKXMDSoASAFQAw%3D%3D"
+          class="social-button location"
+          target="_blank"
+        >
+          <i class="fas fa-map-marker-alt"></i> Find Us Here
+        </a>
+      </div>
     </div>
     <div class="instagram-reel-container">
       <iframe
@@ -66,35 +81,47 @@
     line-height: 1.8;
   }
 
-  .learn-more {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    color: var(--color-primary);
-    text-decoration: none;
-    border: 2px solid var(--color-primary);
-    border-radius: 4px;
-    transition: all 0.3s ease;
+  .button-group {
+    display: flex;
+    gap: 1rem;
   }
 
-  .learn-more:hover {
+  .social-button {
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .social-button i {
+    font-size: 1.2rem;
+  }
+
+  .instagram {
+    background-color: #c13584;
+    color: white;
+  }
+
+  .instagram:hover {
+    background-color: #e1306c;
+  }
+
+  .location {
     background-color: var(--color-primary);
     color: white;
   }
 
-  .about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  .location:hover {
+    background-color: #34495e;
   }
 
   @media (max-width: 768px) {
     .about-content {
       grid-template-columns: 1fr;
-    }
-
-    .about-image {
-      order: -1;
     }
   }
 </style>
