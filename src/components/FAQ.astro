@@ -1,0 +1,115 @@
+---
+const faqs = [
+  {
+    question: "What is a Japanese Head Spa?",
+    answer:
+      "A Japanese Head Spa is a therapeutic treatment that combines traditional Japanese techniques with modern scalp care. It includes deep cleansing, massage, and conditioning treatments designed to promote scalp health and relaxation.",
+  },
+  {
+    question: "What are the benefits?",
+    answer:
+      "Regular treatments can help reduce stress, improve blood circulation, promote hair growth, relieve headaches, and maintain overall scalp health. Many clients also report better sleep quality after sessions.",
+  },
+  {
+    question: "Do I need to prepare anything before my visit?",
+    answer:
+      "We recommend coming with clean, dry hair. Please arrive 10 minutes before your appointment time. If you have any scalp conditions, please inform us when booking.",
+  },
+  {
+    question: "Is the treatment safe during pregnancy?",
+    answer:
+      "Yes, our Japanese Head Spa treatments are safe during pregnancy. However, we recommend informing your therapist about your pregnancy so they can adjust the treatment accordingly to ensure your comfort and safety.",
+  },
+];
+---
+
+<section class="faq">
+  <div class="content-wrapper">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      {
+        faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: 6rem 2rem;
+    background-color: white;
+  }
+
+  .content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: var(--color-background);
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  summary {
+    padding: 1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: "+";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    transition: transform 0.3s ease;
+  }
+
+  details[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .faq-item p {
+    padding: 0 1rem 1rem;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  details[open] {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .faq {
+      padding: 4rem 1rem;
+    }
+  }
+</style>

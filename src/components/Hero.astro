@@ -1,27 +1,24 @@
 ---
-
+import { whatsappBookingUrl } from "../utils/constants";
 ---
 
 <section class="hero">
   <div class="hero-content">
     <h1>CALIA</h1>
-
     <span class="katakana">カリア</span>
     <p class="subtitle">Japanese Head Spa</p>
     <p class="tagline">
       Experience traditional Japanese scalp care and deep relaxation
     </p>
-    <a
-      href="https://wa.me/6287771616166?text=Halo,%20saya%20ingin%20memesan%20sesi."
-      class="cta-button"
-      target="_blank">Book Your Session</a
+    <a href={whatsappBookingUrl} class="cta-button" target="_blank"
+      >Book Your Session</a
     >
   </div>
 </section>
 
 <style>
   .hero {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 54px);
     background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
       url("../assets/hero.jpg");
     background-size: cover;
