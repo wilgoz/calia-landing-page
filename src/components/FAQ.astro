@@ -23,7 +23,7 @@ const faqs = [
 ];
 ---
 
-<section class="faq">
+<section class="faq" id="faq">
   <div class="content-wrapper">
     <h2>Frequently Asked Questions</h2>
     <div class="faq-grid">
@@ -101,6 +101,10 @@ const faqs = [
     padding: 0 1rem 1rem;
     color: var(--color-text);
     line-height: 1.6;
+  }
+
+  .faq-item:hover {
+    background-color: var(--color-background-dark);
   }
 
   details[open] {

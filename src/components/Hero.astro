@@ -1,8 +1,16 @@
 ---
 import { whatsappBookingUrl } from "../utils/constants";
+import { Image } from "astro:assets";
+import heroImage from "../assets/hero.jpg";
 ---
 
 <section class="hero">
+  <Image
+    src={heroImage}
+    alt="Hero Background"
+    class="hero-background"
+    loading="eager"
+  />
   <div class="hero-content">
     <h1>CALIA</h1>
     <span class="katakana">カリア</span>
@@ -18,16 +26,25 @@ import { whatsappBookingUrl } from "../utils/constants";
 
 <style>
   .hero {
+    position: relative;
     height: calc(100vh - 54px);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-      url("../assets/hero.jpg");
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.37);
   }
 
   .hero-content {

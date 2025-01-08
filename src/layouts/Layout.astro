@@ -50,9 +50,9 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="nav-content">
         <a href={baseUrl + "/"} class="logo">Calia</a>
         <div class="nav-links">
-          <a href="/services" class="hide-mobile">Services</a>
-          <a href="/about" class="hide-mobile">About</a>
-          <a href="/faq" class="hide-mobile">FAQ</a>
+          <a href="#services" class="hide-mobile">Services</a>
+          <a href="#about" class="hide-mobile">About</a>
+          <a href="#faq" class="hide-mobile">FAQ</a>
           <a href={whatsappBookingUrl} class="book-button" target="_blank"
             >Book Now</a
           >
@@ -73,7 +73,7 @@ const baseUrl = import.meta.env.BASE_URL;
           />
         </div>
         <div class="footer-location">
-          <h4><b>Location</b></h4>
+          <div class="footer-header"><b>Location</b></div>
           <p>
             Ruko Maxwell, Blk. C No.19<br />
             Desa Medang, Kecamatan Pagedangan<br />
@@ -81,16 +81,16 @@ const baseUrl = import.meta.env.BASE_URL;
           </p>
         </div>
         <div class="footer-hours">
-          <h4><b>Hours</b></h4>
+          <div class="footer-header"><b>Hours</b></div>
           <p>Tuesday - Sunday: 10am - 8pm (GMT+7)<br />Monday: Closed</p>
         </div>
         <div class="footer-contact">
-          <h4><b>Contact</b></h4>
+          <div class="footer-header"><b>Contact</b></div>
           <p>Tel: +62 877‑7161‑6166<br />Email: caliaheadspa@gmail.com</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} CALIA. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Calia. All rights reserved.</p>
       </div>
     </footer>
   </body>
@@ -101,7 +101,10 @@ const baseUrl = import.meta.env.BASE_URL;
     --color-primary: #2c3e50;
     --color-secondary: #95a5a6;
     --color-accent: #d4a373;
+    --color-accent-dark: #c19366;
+    --color-accent-darker: #a67c4f;
     --color-background: #faf6f1;
+    --color-background-dark: #f8f1e9;
     --color-text: #2c3e50;
   }
 
@@ -125,8 +128,10 @@ const baseUrl = import.meta.env.BASE_URL;
     font-family: "Noto Serif JP", serif;
     font-weight: 400;
   }
+</style>
 
-  h4 {
+<style>
+  .footer-header {
     font-family: "Noto Serif JP", sans-serif;
     margin-bottom: 0.5rem;
     color: var(--color-accent);
@@ -206,7 +211,7 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .book-button {
-    background-color: var(--color-accent);
+    background-color: var(--color-accent-dark);
     color: white !important;
     padding: 0.5rem 1rem;
     border-radius: 10px;
@@ -216,7 +221,7 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .book-button:hover {
-    background-color: #c19366;
+    background-color: var(--color-accent-darker);
     color: white !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(212, 163, 115, 0.4);
@@ -225,10 +230,6 @@ const baseUrl = import.meta.env.BASE_URL;
   @media (max-width: 768px) {
     .nav-links .hide-mobile {
       display: none;
-    }
-
-    .book-button {
-      display: inline-block; /* Ensure the button is visible */
     }
   }
 </style>
