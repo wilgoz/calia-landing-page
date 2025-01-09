@@ -70,12 +70,17 @@ const faqs = [
   }
 
   summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem;
     font-weight: 500;
     color: var(--color-primary);
     cursor: pointer;
     position: relative;
     list-style: none;
+    white-space: normal;
+    word-wrap: break-word;
   }
 
   summary::-webkit-details-marker {
@@ -84,17 +89,15 @@ const faqs = [
 
   summary::after {
     content: "+";
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 1.5rem;
     color: var(--color-accent);
     transition: transform 0.3s ease;
+    margin-left: 1rem;
+    flex-shrink: 0;
   }
 
   details[open] summary::after {
-    transform: translateY(-50%) rotate(45deg);
+    transform: rotate(45deg);
   }
 
   .faq-item p {
