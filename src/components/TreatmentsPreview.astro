@@ -1,0 +1,260 @@
+---
+import { formatCurrency } from "../utils/formatCurrency";
+
+const treatmentLines = [
+  {
+    name: "Makarizo Package",
+    description:
+      "High-quality Japanese scalp treatments at an accessible price point",
+    priceRange: 175000,
+    features: [
+      "Classic Japanese Head Spa treatment",
+      "Quality shampoo for all hair types",
+      "Optional add-ons available",
+      "Perfect for first-time visitors",
+      "Great value for regular care",
+    ],
+  },
+  {
+    name: "La'Dor Package",
+    description:
+      "Premium scalp care using La'Dor products for exceptional results",
+    priceRange: 275000,
+    features: [
+      "Premium Japanese Head Spa treatment",
+      "Wide range of shampoos for different hair types",
+      "Optional add-ons available",
+      "Includes facial mask for added relaxation",
+      "Cooling tea tree scalp scrub included",
+    ],
+    highlight: "Recommended",
+  },
+];
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<section class="treatments" id="treatments">
+  <div class="content-wrapper">
+    <header class="section-header">
+      <h2>Our Treatment Lines</h2>
+      <p class="section-description">
+        Experience the perfect blend of traditional techniques and modern luxury
+      </p>
+    </header>
+
+    <div class="treatment-comparison">
+      {
+        treatmentLines.map((line) => (
+          <div class:list={["treatment-card", { premium: line.highlight }]}>
+            {line.highlight && (
+              <span class="premium-badge">{line.highlight}</span>
+            )}
+            <div class="card-content">
+              <h3>{line.name}</h3>
+              <p class="description">{line.description}</p>
+              <div class="price">
+                Starting from <span>{formatCurrency(line.priceRange)}</span>
+              </div>
+              <ul class="features">
+                {line.features.map((feature) => (
+                  <li>
+                    <span class="bullet">•</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="cta-section">
+      <p class="cta-description">
+        Available for both single sessions and couple treatments
+      </p>
+      <a href={baseUrl + "/services"} class="view-services">
+        View All Services & Pricing
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .treatments {
+    padding: 8rem 2rem;
+    background-color: var(--color-background-dark);
+  }
+
+  .content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-description {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .treatment-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .treatment-card {
+    background: white;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .card-content {
+    padding: 2.5rem;
+  }
+
+  .premium-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--color-accent-dark);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .treatment-card.premium {
+    border: 2px solid var(--color-accent);
+  }
+
+  .treatment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    font-family: "Noto Serif JP", serif;
+    color: var(--color-primary);
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .description {
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+
+  .price {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .price span {
+    color: var(--color-accent);
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+
+  .features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .features li {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .bullet {
+    color: var(--color-accent);
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  .cta-section {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .cta-description {
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .view-services {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .view-services:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .services {
+      padding: 6rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .treatment-comparison {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .card-content {
+      padding: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

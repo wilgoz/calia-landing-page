@@ -10,10 +10,17 @@ interface Props {
 
 const {
   title,
-  description = "Calia Japanese Head Spa offers luxurious scalp treatments and relaxation in a serene environment.",
+  description = "Calia Japanese Head Spa Indonesia offers luxurious scalp treatments and relaxation in a serene environment.",
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
+
+const isCurrentPage = (path: string): boolean => {
+  return (
+    (baseUrl + path).replace(/\/$/, "") ===
+    Astro.url.pathname.replace(/\/$/, "")
+  );
+};
 ---
 
 <!doctype html>
@@ -48,14 +55,23 @@ const baseUrl = import.meta.env.BASE_URL;
   <body>
     <nav class="main-nav">
       <div class="nav-content">
-        <a href={baseUrl + "/"} class="logo">Calia</a>
+        <a href={baseUrl} class="logo">Calia</a>
         <div class="nav-links">
-          <a href="#services" class="hide-mobile">Services</a>
-          <a href="#about" class="hide-mobile">About</a>
-          <a href="#faq" class="hide-mobile">FAQ</a>
-          <a href={whatsappBookingUrl} class="book-button" target="_blank"
-            >Book Now</a
+          <a
+            href={baseUrl}
+            class:list={["hide-mobile", { active: isCurrentPage("/") }]}
           >
+            Home
+          </a>
+          <a
+            href={baseUrl + "/services"}
+            class:list={["hide-mobile", { active: isCurrentPage("/services") }]}
+          >
+            Services
+          </a>
+          <a href={whatsappBookingUrl} class="book-button" target="_blank">
+            Book Now
+          </a>
         </div>
       </div>
     </nav>
@@ -112,6 +128,10 @@ const baseUrl = import.meta.env.BASE_URL;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -172,7 +192,11 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .nav-links a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-darker);
+  }
+
+  .nav-links a.active {
+    color: var(--color-accent-darker);
   }
 
   main {
@@ -223,7 +247,6 @@ const baseUrl = import.meta.env.BASE_URL;
   .book-button:hover {
     background-color: var(--color-accent-darker);
     color: white !important;
-    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(212, 163, 115, 0.4);
   }
 
