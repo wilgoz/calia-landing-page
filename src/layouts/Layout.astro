@@ -13,13 +13,8 @@ const {
   description = "Calia Japanese Head Spa Indonesia offers luxurious scalp treatments and relaxation in a serene environment.",
 } = Astro.props;
 
-const baseUrl = import.meta.env.BASE_URL;
-
 const isCurrentPage = (path: string): boolean => {
-  return (
-    (baseUrl + path).replace(/\/$/, "") ===
-    Astro.url.pathname.replace(/\/$/, "")
-  );
+  return path.replace(/\/$/, "") === Astro.url.pathname.replace(/\/$/, "");
 };
 ---
 
@@ -29,7 +24,7 @@ const isCurrentPage = (path: string): boolean => {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href={baseUrl + "/favicon.png"} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -55,16 +50,16 @@ const isCurrentPage = (path: string): boolean => {
   <body>
     <nav class="main-nav">
       <div class="nav-content">
-        <a href={baseUrl} class="logo">Calia</a>
+        <a href="/" class="logo">Calia</a>
         <div class="nav-links">
           <a
-            href={baseUrl}
+            href="/"
             class:list={["hide-mobile", { active: isCurrentPage("/") }]}
           >
             Home
           </a>
           <a
-            href={baseUrl + "/services"}
+            href="/services"
             class:list={["hide-mobile", { active: isCurrentPage("/services") }]}
           >
             Services
