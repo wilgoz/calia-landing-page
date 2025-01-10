@@ -39,13 +39,14 @@ import { locationUrl } from "../utils/constants";
       </div>
     </div>
     <div class="instagram-reel-container">
-      <iframe
-        title="About Calia"
-        src="https://www.instagram.com/reel/DD__6zxymob/embed"
-        width="400"
-        height="700"
-        allow="autoplay; encrypted-media"
-        loading="lazy"></iframe>
+      <blockquote
+        class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DD__6zxymob/"
+        data-instgrm-version="14"
+        style="background:#FFF; border:0; margin:1px; max-width:540px; padding:0; width:calc(100% - 2px);"
+      >
+      </blockquote>
+      <script async src="//www.instagram.com/embed.js"></script>
     </div>
   </div>
 </section>
@@ -82,17 +83,10 @@ import { locationUrl } from "../utils/constants";
 
   .instagram-reel-container {
     max-width: 100%;
-    margin: 10px auto;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
-
-  .instagram-reel-container iframe {
-    max-width: 100%;
-    border-radius: 10px;
-    border: none;
   }
 
   .about {
@@ -102,7 +96,7 @@ import { locationUrl } from "../utils/constants";
   }
 
   .about-content {
-    max-width: 1200px;
+    max-width: var(--content-max-width);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
